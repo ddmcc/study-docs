@@ -20,6 +20,7 @@ module.exports = {
                                         })],
     },
     themeConfig: {
+        hostname: "http://study.ddmcc.cn/",
         repo: "https://github.com/ddmcc/study-docs",
         editLinks: true,
         navbar: true,
