@@ -23,7 +23,9 @@ module.exports = {
         hostname: "http://study.ddmcc.cn/",
         repo: "https://github.com/ddmcc/study-docs",
         editLinks: true,
+        editLinkText: '前往编辑',
         navbar: true,
+        lastUpdated: "上次更新",
         sidebarDepth: 0,
         sidebar: [
             {
