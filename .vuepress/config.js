@@ -28,10 +28,10 @@ module.exports = {
             {
                 title: "消息队列",
                 children: [
-                    "/mq/消息队列的应用场景",
-                    "/mq/如何选择消息队列",
-                    "/mq/消息模型",
-                    "/mq/事务消息"
+                    "/message-queue/消息队列的应用场景",
+                    "/message-queue/如何选择消息队列",
+                    "/message-queue/消息模型",
+                    "/message-queue/事务消息"
                 ],
             }
         ],
