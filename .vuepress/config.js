@@ -20,7 +20,7 @@ module.exports = {
                                         })],
     },
     themeConfig: {
-        repo: "https://github.com/ddmcc/mq-docs",
+        repo: "https://github.com/ddmcc/study-docs",
         editLinks: true,
         navbar: true,
         sidebarDepth: 0,
