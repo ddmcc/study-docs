@@ -6,8 +6,6 @@ module.exports = {
     //指定 vuepress build 的输出目录
     dest: "./dist",
     theme: 'antdocs',
-    // 是否开启默认预加载js
-    shouldPrefetch: (file, type) => false,
     configureWebpack: {
         //vuepress 编译压缩
         plugins: [new CompressionPlugin({
@@ -25,8 +23,9 @@ module.exports = {
         editLinks: true,
         editLinkText: '前往编辑',
         navbar: true,
+        docsDir: "/message-queue",
         lastUpdated: "上次更新",
-        sidebarDepth: 0,
+        sidebarDepth: 2,
         sidebar: [
             {
                 title: "消息队列",
@@ -34,10 +33,13 @@ module.exports = {
                     "/message-queue/消息队列的应用场景",
                     "/message-queue/如何选择消息队列",
                     "/message-queue/消息模型",
-                    "/message-queue/事务消息"
+                    "/message-queue/事务消息",
+                    "/message-queue/如何确保消息不会丢失"
                 ],
             }
         ],
+        smoothScroll: true,
+        backToTop: true
     },
 
     locales: {
@@ -49,5 +51,10 @@ module.exports = {
         timezone: "Asia/Shanghai",
     },
     search: true,
-    searchMaxSuggestions: 10
+    searchMaxSuggestions: 10,
+    markdown: {
+        anchor: {
+            level: [1, 2, 3]
+        }
+    }
 }
