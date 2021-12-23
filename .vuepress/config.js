@@ -18,14 +18,25 @@ module.exports = {
                                         })],
     },
     themeConfig: {
+        logo: '/logo.jpg',
         hostname: "http://study.ddmcc.cn/",
         repo: "https://github.com/ddmcc/study-docs",
         editLinks: true,
         editLinkText: '前往编辑',
         navbar: true,
-        docsDir: "/message-queue",
         lastUpdated: "上次更新",
         sidebarDepth: 2,
+        nav: [
+            {
+                text: "我的博客",
+                icon: false,
+                link: "https://ddmcc.cn"
+            },
+            {
+                text: "面试宝典",
+                link: "http://interview.ddmcc.cn"
+            },
+        ],
         sidebar: [
             {
                 title: "消息队列",
@@ -39,7 +50,15 @@ module.exports = {
             }
         ],
         smoothScroll: true,
-        backToTop: true
+        backToTop: true,
+        ads:{
+            style: 3,
+            title: '赞助商',
+            btnText: '成为赞助商',
+            msgTitle: '成为赞助商',
+            msgText: '如果您有品牌推广、活动推广、招聘推广、社区合作等需求，欢迎联系我们，成为赞助商。您的广告将出现在文档侧边栏等页面。',
+            msgOkText: '确定',
+        },
     },
 
     locales: {
