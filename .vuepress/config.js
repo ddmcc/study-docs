@@ -41,11 +41,11 @@ module.exports = {
             {
                 title: "消息队列",
                 children: [
-                    "/message-queue/消息队列的应用场景",
-                    "/message-queue/如何选择消息队列",
-                    "/message-queue/消息模型",
-                    "/message-queue/事务消息",
-                    "/message-queue/如何确保消息不会丢失"
+                    "/message-queue/1消息队列的应用场景",
+                    "/message-queue/2如何选择消息队列",
+                    "/message-queue/3消息模型",
+                    "/message-queue/4事务消息",
+                    "/message-queue/5如何确保消息不会丢失"
                 ],
             }
         ],
