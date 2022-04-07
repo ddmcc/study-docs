@@ -48,6 +48,12 @@ module.exports = {
                     "/message-queue/5如何确保消息不会丢失",
                     "/message-queue/6如何处理重复消息"
                 ],
+            },
+            {
+                title: "Spring源码",
+                children: [
+
+                ],
             }
         ],
         smoothScroll: true,
