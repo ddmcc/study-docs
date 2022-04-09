@@ -19,7 +19,7 @@ module.exports = {
     },
     themeConfig: {
         logo: '/logo.jpg',
-        hostname: "http://study.ddmcc.cn/",
+        hostname: "https://study.ddmcc.cn/",
         repo: "https://github.com/ddmcc/study-docs",
         editLinks: true,
         editLinkText: '前往编辑',
@@ -34,7 +34,7 @@ module.exports = {
             },
             {
                 text: "面试宝典",
-                link: "http://interview.ddmcc.cn"
+                link: "https://interview.ddmcc.cn"
             },
         ],
         sidebar: [
@@ -50,9 +50,16 @@ module.exports = {
                 ],
             },
             {
-                title: "Spring源码",
+                title: "Spring框架",
                 children: [
+                    {
+                        title: "核心注解",
+                        path: "/spring-framework/基本注解",
+                        children: [
+                            "/spring-framework/annotation/configuration"
+                        ]
 
+                    }
                 ],
             }
         ],
