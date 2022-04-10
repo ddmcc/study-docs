@@ -49,7 +49,7 @@ User{name='大锤'}
 
 如上所示，**`Spring` 会将方法返回`User`注册到 `Spring` 容器中，默认情况下 beanName = 方法名，如上面例子User对象 beanName 则为user，也可以在 @Bean 注解中设置名称**。配置类 **ConfigurationTest** 在 `Spring` 启动阶段会被先加载并解析为`ConfigurationClass`对象，然后会基于 `ConfigurationClass` 对象为容器注册 `BeanDefinition`，以及基于 **user()** 方法为容器注册`BeanDefinition`，后续 `Spring` 会基于这些 `BeanDefinition` 向容器注册bean
 
-
+---
 
 上面是基于 **Configuration** 注解用 `Java` 代码的方式来声明 `Spring` 容器中的bean，那么用  `xml` 来定义上面的例子就是：
 
@@ -65,8 +65,7 @@ User{name='大锤'}
 </beans>
 ```
 
-
-
+---
 `xml` 文件对应的引导类为 **ClassPathXmlApplicationContext** ：
 
 ```java
@@ -85,6 +84,6 @@ User{name='李四'}
 
 ```
 
-
+---
 
 // todo 约束测试

@@ -56,7 +56,8 @@ module.exports = {
                         title: "核心注解",
                         path: "/spring-framework/基本注解",
                         children: [
-                            "/spring-framework/annotation/configuration"
+                            "/spring-framework/annotation/configuration",
+                            "/spring-framework/annotation/componentScan"
                         ]
 
                     }
