@@ -8,7 +8,7 @@ title: ComponentScan
 
 在 `Spring` 项目中，我们可以指定容器扫描的包，所有在指定的包或其子包下标注了 **@Repository** 、**@Service** 、**@Component** 、 **@Repository** 注解的类都会被注入到容器中
 
-  `ComponentScan` 注解的作用就是用来定义要扫描的包（如果未定义特定的包，则会从声明此注解的类的包中进行扫描），该注解与 `Spring`  xml的 `<context:component-scan>` 元素的作用是一样的
+ 而 `ComponentScan` 注解的作用就是用来定义要扫描的包（如果未定义特定的包，则会从标注此注解的类的包中进行扫描），该注解与 `Spring`  xml的 `<context:component-scan>` 元素的作用是一样的
 
 
 
@@ -74,17 +74,82 @@ public class ComponentScanXmlTest {
 
 ### 使用注解的方式定义扫描的包
 
-以上面xml的例子，用 `@ComponentScan` 注解的方式来
+以上面xml的例子，用 `@ComponentScan` 注解的方式来编写：
+
+```java
+@Configuration // 声明这是一个配置类，相当于以前的xml配置文件
+@ComponentScan(basePackages = "com.ddmcc.scanpkg") // 指定扫描包路径
+public class ComponentScanTest {
+
+
+    public static void main(String[] args) {
+        // 用 AnnotationConfigApplicationContext 类引导
+        ApplicationContext context = new AnnotationConfigApplicationContext(ComponentScanTest.class);
+        String[] beanDefinitionNames = context.getBeanDefinitionNames();
+        for (String definitionName : beanDefinitionNames) {
+            System.out.println(definitionName);
+        }
+    }
+}
+```
 
 
 
+---
+
+同样的，运行后输出被注解标注的类的组件。而且被 `@Configuration` 标注的配置类也被注册成 `BeanDefinition` 
+
+![](https://ddmcc-1255635056.cos.ap-guangzhou.myqcloud.com/1751650771404_.pic.jpg)
 
 
 
+### 过滤规则
+
+- **useDefaultFilters（默认）：** 使用默认过滤器
+
+当该配置开启时，会自动检测带注释 `@Component` 、`@Controller`、`@Service` 、`@Repository` 的类，并注册到容器中。
 
 
 
+- **includerFilters：** 指定哪些类型符合组件扫描的条件。 进一步将候选组件集从基本包中的所有组件缩小到基本包中与给定过滤器匹配的组件
 
 
 
+```java
+@ComponentScan(
+    basePackages = "com.ddmcc.scanpkg",
+    includeFilters = {
+        @ComponentScan.Filter(type = FilterType.ANNOTATION, value = {Service.class})
+    },
+    useDefaultFilters = false) // 指定扫描包路径
+```
+
+
+
+上面配置指定扫描 `@Service` 注解，注意需要把 `useDefaultFilters` 关闭，否则会把默认的也扫出来
+
+---
+
+**自定义扫描注解**
+
+```jav
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface MyScanAnnotation {
+}
+
+
+@MyScanAnnotation
+public class MyComponent {
+}
+```
+
+
+
+指定扫面路径下的 `@Service` 和 `MyScanAnnotation` 
+
+
+
+![](https://ddmcc-1255635056.cos.ap-guangzhou.myqcloud.com/1761650784313_.pic.jpg)
 

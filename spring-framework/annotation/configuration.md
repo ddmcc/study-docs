@@ -6,7 +6,7 @@ title: Configuration
 
 ### 作用是什么
 
-声明这是一个配置类，相当于以前的xml配置文件。被注解声明的类表示有一个或多个 `@Bean` 方法，这些方法可以被 `Spring` 容器处理以在运行时为这些 bean 生成 bean 定义和服务请求
+声明这是一个配置类，相当于以前的xml配置文件。被注解声明的类表示有一个或多个 `@Bean` 方法，这些方法可以被 `Spring` 容器处理以在运行时为这些 bean 生成 bean 定义并服务于请求
 
 被 `@Configuration` 声明的类使用 `AnnotationConfigApplicationContext` 或支持 Web 的变体`AnnotationConfigWebApplicationContext`进行引导初始化
 
@@ -51,7 +51,7 @@ User{name='大锤'}
 
 ---
 
-上面是基于 **Configuration** 注解用 `Java` 代码的方式来声明 `Spring` 容器中的bean，那么用  `xml` 来定义上面的例子就是：
+上面是基于 **Configuration** 注解用 `Java` 代码的方式来声明 `Spring` 容器中的bean，用  `xml` 来定义上面的例子就是：
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
