@@ -40,13 +40,15 @@ xmlns:context="http://www.springframework.org/schema/context"
 
 在 `com.ddmcc.scanpkg` 包下，分别定义 @Conteollrt、@Service、@Repository 注解修饰的类，结构如下：
 
-
+---
 
 ![](https://ddmcc-1255635056.cos.ap-guangzhou.myqcloud.com/WeChatd0159bddb73367d72eb2f9d2e32e5d4a.png)
 
-
+---
 
 定义好后我们来编写代码，加载xml尝试输出 `Spring` 容器中的组件：
+
+---
 
 ```java
 public class ComponentScanXmlTest {
@@ -67,6 +69,8 @@ public class ComponentScanXmlTest {
 ---
 
 运行后输出了被注解标注的类的组件：
+
+---
 
 ![](https://ddmcc-1255635056.cos.ap-guangzhou.myqcloud.com/WeChate1562e875112927c13cb9104d98a91c5.png)
 
@@ -98,6 +102,8 @@ public class ComponentScanTest {
 ---
 
 同样的，运行后输出被注解标注的类的组件。而且被 `@Configuration` 标注的配置类也被注册成 `BeanDefinition` 
+
+---
 
 ![](https://ddmcc-1255635056.cos.ap-guangzhou.myqcloud.com/1751650771404_.pic.jpg)
 
@@ -132,7 +138,7 @@ public class ComponentScanTest {
 
 **自定义扫描注解**
 
-```jav
+```java
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
@@ -143,13 +149,44 @@ public @interface MyScanAnnotation {
 @MyScanAnnotation
 public class MyComponent {
 }
+
+@ComponentScan(
+    basePackages = "com.ddmcc.scanpkg",
+    includeFilters = {
+        @ComponentScan.Filter(type = FilterType.ANNOTATION, value = {Service.class}),
+        @ComponentScan.Filter(type = FilterType.ANNOTATION, value = {MyScanAnnotation.class})
+    },
+    useDefaultFilters = false)
+```
+
+---
+
+指定扫面路径下的 `@Service` 和 `MyScanAnnotation` 
+
+---
+
+![](https://ddmcc-1255635056.cos.ap-guangzhou.myqcloud.com/1761650784313_.pic.jpg)
+
+
+
+- **excludeFilters：** 按照规则排除不符合组件
+
+开启默认扫描，并排除 `@Controller`,` `@Repository` 注解，只扫 `Service` 和 自定义注解 `MyScanAnnotation` ：
+
+```java
+@ComponentScan(
+    basePackages = "com.ddmcc.scanpkg",
+    includeFilters = {
+        @ComponentScan.Filter(type = FilterType.ANNOTATION, value = {MyScanAnnotation.class})
+    },
+    excludeFilters = {
+        @ComponentScan.Filter(type = FilterType.ANNOTATION, value = {Controller.class, Repository.class})
+    })
 ```
 
 
 
-指定扫面路径下的 `@Service` 和 `MyScanAnnotation` 
+![](https://ddmcc-1255635056.cos.ap-guangzhou.myqcloud.com/WeChat2765bb48c82b46cfd42eed5be0855b65.png)
 
 
-
-![](https://ddmcc-1255635056.cos.ap-guangzhou.myqcloud.com/1761650784313_.pic.jpg)
 
