@@ -63,6 +63,23 @@ module.exports = {
 
                     }
                 ],
+            },
+            {
+                title: "spring-cloud-gateway",
+                children: [
+                    {
+                        title: "名词解释",
+                        path: "/spring-cloud-gateway/名词解释"
+                    },
+                    {
+                        title: "工作原理",
+                        path: "/spring-cloud-gateway/工作原理"
+                    },
+                    {
+                        title: "网关整合服务注册中心nacos",
+                        path: "/spring-cloud-gateway/网关整合服务注册中心nacos"
+                    }
+                ],
             }
         ],
         smoothScroll: true,
