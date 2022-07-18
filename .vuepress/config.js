@@ -80,6 +80,15 @@ module.exports = {
                         path: "/spring-cloud-gateway/网关整合服务注册中心nacos"
                     }
                 ],
+            },
+            {
+                title: "mybatis-3",
+                children: [
+                    {
+                        title: "基础模块",
+                        path: "/mybatis/基础模块"
+                    }
+                ],
             }
         ],
         smoothScroll: true,
